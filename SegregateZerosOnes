@@ -1,0 +1,28 @@
+import java.util.Arrays;
+public class SegregateZerosOnes {
+    public static void segregateZerosOnes(int[] arr) {
+        int low = 0;
+        int high = arr.length - 1;
+        while (low < high) {
+            if (arr[low] == 0) {
+                low++;
+            }
+            else if (arr[high] == 1) {
+                high--;
+            }
+            else {
+                int temp = arr[low];
+                arr[low] = arr[high];
+                arr[high] = temp;
+                low++;
+                high--;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        int[] array = {0,1,0,1,1,0};
+        System.out.println("Original Array: " + Arrays.toString(array));
+        segregateZerosOnes(array);
+        System.out.println("Array after segregation: " + Arrays.toString(array));
+    }
+}
